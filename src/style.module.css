@@ -13,8 +13,8 @@ body {
     }
 }
 .header {
-    background: #222;
-    color: bisque;
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    color: #fff;
     padding: 20px;
     font-size: 2em;
     text-align: center;
@@ -38,7 +38,7 @@ body {
 .todobutton {
     width: 100%;
     border: none;
-    background: #666;
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     color: bisque;
     height: 50px;
     cursor: pointer;
@@ -47,11 +47,9 @@ body {
 }
 .todoitem {
     width: 100%;
-    /* text-align: center; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 20px; */
     margin: 20px auto;
     border: 1px solid #666;
     border-radius: 50px;
@@ -60,9 +58,15 @@ body {
     margin-left: 2em;
 }
 .btnDone {
-    /* background: red; */
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     padding: 10px 25px;
     margin-right: 2em;
     border-radius: 50px;
     cursor: pointer;
+    color: #fff;
+    border: none;
+    transition: all .2s ease-in-out;
+}
+.btnDone:hover {
+    background: linear-gradient(90deg, #3A1C71 0%, #FDBB2D 100%);
 }
