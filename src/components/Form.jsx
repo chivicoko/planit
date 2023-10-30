@@ -21,10 +21,12 @@ const Form = () => {
     }
     // console.log(todoList);
 
-    // const handleDone = (e) => {
-    //     let todoList2 = todoList.filter((item) => item.id !== e.target.value.id);
-    //     console.log(todoList2);
-    // }
+    const handleDone = (index) => {
+        const updatedItems = [...todoList];
+        updatedItems.splice(index, 1);
+        setTodoList(updatedItems);
+    }
+    // console.log(todoList);
 
   return (
     <div className={styles.todoform}>
@@ -38,7 +40,7 @@ const Form = () => {
                         return (
                             <div key={todoItem.id} className={styles.todoitem}>
                                 <h3>{todoItem.name}</h3>
-                                <button className={styles.btnDone} onClick={handleDone}>Done</button>
+                                <button className={styles.btnDone} onClick={() => handleDone(index)}>Done</button>
                             </div>
                         )
                     })

@@ -7,6 +7,11 @@ body {
 .container {
     padding-inline: 15em;
 }
+@media screen and (max-width: 884px) {
+    .container {
+        padding-inline: .5em;
+    }
+}
 .header {
     background: #222;
     color: bisque;
@@ -52,11 +57,12 @@ body {
     border-radius: 50px;
 }
 .todoitem h3 {
-    margin-left: 4em;
+    margin-left: 2em;
 }
 .btnDone {
     /* background: red; */
     padding: 10px 25px;
-    margin-right: 4em;
+    margin-right: 2em;
     border-radius: 50px;
+    cursor: pointer;
 }
