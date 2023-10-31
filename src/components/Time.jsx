@@ -64,32 +64,37 @@ const Time = () => {
         });
     }
 
-    // console.log(session);
-    // console.log(start);
-
     return (
         <div className={styles.timearea}>
             <h2>Time selector UI</h2>
             {session
                 ?
-                <div>
+                <div className={styles.time}>
                     <h2>Hey there {session.user.email}</h2>
                     <p>Start of your event</p>
                     <DateTimePicker onChange={setStart} value={start} />
                     <p>End of your event</p>
                     <DateTimePicker onChange={setEnd} value={end} label="Basic date time picker" />
-                    <p>Event Name</p>
-                    <input type="text" onChange={(e) => setEventName(e.target.value)} />
-                    <p>Event Description</p>
-                    <input type="text" onChange={(e) => setEventDescription(e.target.value)} />
+
+                    <div className={styles.eventName}>
+                        <p>Event Name</p>
+                        <input type="text" onChange={(e) => setEventName(e.target.value)} />
+                    </div>
+
+                    <div className={styles.eventDescription}>
+                        <p>Event Description</p>
+                        <textarea name="" id="" cols="51" rows="4" onChange={(e) => setEventDescription(e.target.value)}></textarea>
+                        {/* <input type="text" onChange={(e) => setEventDescription(e.target.value)} /> */}
+                    </div>
+
                     <hr />
-                    <button onClick={() => createCalendarEvent()}>Create Calendar Event</button>
+                    <button className={styles.eventBtn} onClick={() => createCalendarEvent()}>Create Calendar Event</button>
                     <br />
-                    <button onClick={() => signOut()}>Sign Out</button>
+                    <button className={styles.eventBtn} onClick={() => signOut()}>Sign Out</button>
                 </div>
                 :
-                <div>
-                    <button onClick={() => googleSignIn()}>Sign In With Google</button>
+                <div className={styles.time}>
+                    <button className={styles.eventBtn} onClick={() => googleSignIn()}>Sign In With Google</button>
                 </div>
             }
         </div>
