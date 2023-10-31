@@ -70,3 +70,15 @@ body {
 .btnDone:hover {
     background: linear-gradient(90deg, #3A1C71 0%, #FDBB2D 100%);
 }
+.timearea {
+    padding: 20px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.timearea div {
+    text-align: center;
+    width: 100%;
+}

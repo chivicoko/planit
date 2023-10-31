@@ -1,10 +1,17 @@
+// supabase googlecalendar project password = zKRYoUOb3K3POdrU
+// client ID = 337594554354-rl0h2irnbsp2m2hpn38fuudn9nceu0li.apps.googleusercontent.com
+// client secret = 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
+
 import React, { useEffect, useState } from 'react';
 import styles from '../style.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { useGlobContext } from '../context';
 
 const Form = () => {
     const [todo, setTodo] = useState("");
     const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('lstodoList')) || []);
+    const context = useGlobContext();
+    // console.log(context);
 
     useEffect(() => {
         localStorage.setItem('lstodoList', JSON.stringify(todoList));

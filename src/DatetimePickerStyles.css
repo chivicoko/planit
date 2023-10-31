@@ -1,0 +1,39 @@
+.react-datetime-picker {
+    display: flex !important;
+    
+}
+.react-datetime-picker__wrapper {
+    /* border: 1px solid red; */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.react-datetime-picker__inputGroup {
+    border: 1px solid gray;
+    width: 300px !important;
+    padding: 10px !important;
+    margin-right: 10px;
+}
+.react-datetime-picker__inputGroup__input {
+    /* border: none; */
+    width: 32px !important;
+}
+.react-datetime-picker__inputGroup__year {
+    width: 48px !important;
+}
+.react-datetime-picker__inputGroup__hour {
+    width: 35px !important;
+}
+.react-datetime-picker__inputGroup__minute {
+    width: 33px !important;
+}
+.react-datetime-picker__inputGroup__amPm {
+    width: 45px !important;
+}
+.react-datetime-picker button {
+    width: 50px;
+    background: #fff;
+    border: 1px solid gray;
+    padding: 10px !important;
+    margin-inline: 5px;
+}
