@@ -11,8 +11,8 @@ const Time = () => {
     const [eventName, setEventName] = useState("");
     const [eventDescription, setEventDescription] = useState("");
 
-    const session = useSession(); // tokens, when session exists, we have a user
-    const supabase = useSupabaseClient(); // talk to supabase
+    const session = useSession();
+    const supabase = useSupabaseClient();
     const {isLoading} = useSessionContext();
 
     if (isLoading) {
@@ -42,18 +42,18 @@ const Time = () => {
             'summary': eventName,
             'description': eventDescription,
             'start': {
-                'dateTime': start.toISOString(),  // Date.toISOString()
-                'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone  // your specific timezone
+                'dateTime': start.toISOString(),
+                'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone
             },
             'end': {
-                'dateTime': end.toISOString(),  // Date.toISOString()
-                'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone  // your specific timezone
+                'dateTime': end.toISOString(),
+                'timeZone': Intl.DateTimeFormat().resolvedOptions().timeZone
             }
         }
         await fetch("https://www.googleapis.com/calendar/v3/calendars/primary/events", {
             method: "POST",
             headers: {
-                'Authorization':'Bearer ' + session.provider_token  //access token to google
+                'Authorization':'Bearer ' + session.provider_token
             },
             body: JSON.stringify(event)
         }).then((data) => {
@@ -84,7 +84,6 @@ const Time = () => {
                     <div className={styles.eventDescription}>
                         <p>Event Description</p>
                         <textarea name="" id="" cols="51" rows="4" onChange={(e) => setEventDescription(e.target.value)}></textarea>
-                        {/* <input type="text" onChange={(e) => setEventDescription(e.target.value)} /> */}
                     </div>
 
                     <hr />

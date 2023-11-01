@@ -1,13 +1,16 @@
 import styles from "../style.module.css";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Header = () => {
-    return <div className={styles.header}>planIt - Get Your Day Well Set
-        {/* <h3></h3>
+    return (
+    <div className={styles.header}>
+        <h3>planIt - Get Your Day Well Set</h3>
         <ul>
-            <li><Link to={''}>Set Date</Link></li>
-        </ul> */}
+            <li><Link to={'/'}>Schedule</Link></li>
+            <li><Link to={'/time'}>Set Date</Link></li>
+        </ul>
     </div>
+    )
 }
 
 export default Header;

@@ -15,9 +15,28 @@ body {
 .header {
     background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     color: #fff;
-    padding: 20px;
+    padding-block: auto;
+    padding-inline: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h3 {
     font-size: 2em;
-    text-align: center;
+}
+.header ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.header ul li {
+    color: #fff;
+    font-size: 1em;
+    list-style: none;
+}
+.header ul li a {
+    color: #fff;
+    text-decoration: none;
 }
 .todoform {
     width: 100%;
