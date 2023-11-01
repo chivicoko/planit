@@ -43,3 +43,6 @@
 .react-datetime-picker__clear-button {
     margin-inline: 10px !important;
 }
+.react-calendar__viewContainer {
+    display: none !important;
+}

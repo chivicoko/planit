@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
         <Router>
-        <Header />
+          <Header />
           <Routes>
             <Route path="/" element={<Form/>} />
             <Route path="/time" element={<Time/>} />

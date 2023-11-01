@@ -3,7 +3,7 @@
 // client secret = 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
 
 import styles from '../style.module.css';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { useGlobContext } from '../context';
 import Items from './Items';
 

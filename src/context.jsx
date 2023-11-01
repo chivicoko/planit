@@ -4,6 +4,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 
+    // todo section
     const [todo, setTodo] = useState("");
     const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('lstodoList')) || []);
 
@@ -28,6 +29,9 @@ const AppProvider = ({children}) => {
         setTodoList(updatedItems);
     }
     // console.log(todoList);
+
+    // date time section
+    
 
     return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList}}>
         {children}
