@@ -9,8 +9,8 @@ function App() {
         <Router>
         <Header />
           <Routes>
-            <Route path="/" exact component={Form} />
-            <Route path="/time" component={Time} />
+            <Route path="/" element={<Form/>} />
+            <Route path="/time" element={<Time/>} />
           </Routes>
         </Router>
       </div>
