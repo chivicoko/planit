@@ -71,9 +71,9 @@ const Time = () => {
                 ?
                 <div className={styles.time}>
                     <h2>Hey there {session.user.email}</h2>
-                    <p>Start of your event</p>
+                    <p className={styles.start}>Start of your event</p>
                     <DateTimePicker onChange={setStart} value={start} />
-                    <p>End of your event</p>
+                    <p className={styles.end}>End of your event</p>
                     <DateTimePicker onChange={setEnd} value={end} label="Basic date time picker" />
 
                     <div className={styles.eventName}>
@@ -82,14 +82,14 @@ const Time = () => {
                     </div>
 
                     <div className={styles.eventDescription}>
-                        <p>Event Description</p>
+                        <p className={styles.eventDescriptionP}>Event Description</p>
                         <textarea name="" id="" cols="51" rows="4" onChange={(e) => setEventDescription(e.target.value)}></textarea>
                     </div>
 
                     <hr />
-                    <button className={styles.eventBtn} onClick={() => createCalendarEvent()}>Create Calendar Event</button>
+                    <button className={styles.eventBtn} id={styles.create} onClick={() => createCalendarEvent()}>Create Calendar Event</button>
                     <br />
-                    <button className={styles.eventBtn} onClick={() => signOut()}>Sign Out</button>
+                    <button className={styles.eventBtn} id={styles.signOut} onClick={() => signOut()}>Sign Out</button>
                 </div>
                 :
                 <div className={styles.time}>

@@ -27,16 +27,19 @@ body {
 .header ul {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
 }
 .header ul li {
-    color: #fff;
-    font-size: 1em;
     list-style: none;
 }
 .header ul li a {
     color: #fff;
+    font-size: 1.2em;
     text-decoration: none;
+    transition: all .8s;
+}
+.header ul li a:hover {
+    color: #FDBB2D;
 }
 .todoform {
     width: 100%;
@@ -116,12 +119,23 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.eventName, .end {
+    margin-top: 60px;
+}
+.eventDescription, #create, #signOut {
+    margin-top: 25px;
+}
 .eventName input {
     width: 94% !important;
     height: 25px;
     padding-inline: 10px;
     border: 2px solid #3A1C71;
     border-radius: 4px;
+}
+.eventName p, .eventDescription p, .start, .end {
+    font-size: large !important;
+    font-weight: 700 !important;
+    line-height: 1px;
 }
 .eventDescription textarea {
     padding-inline: 10px;
