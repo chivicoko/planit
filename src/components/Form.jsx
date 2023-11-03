@@ -9,10 +9,13 @@ import Items from './Items';
 
 const Form = () => {
     const {handleChange, handleSubmit, todo} = useGlobContext();
+    // const parentDiv = document.querySelector('#parentDiv div');
+    // const childrenElements = parentDiv.childNodes;
+    // console.log(childrenElements);
 
   return (
     <div className={styles.todoform}>
-        <div className={styles.container}>
+        <div className={styles.container} id='parentDiv'>
             <form onSubmit={handleSubmit}>
                 <input className={styles.todoinput} value={todo} onChange={handleChange} type="text" placeholder='Add ToDo Item' />
                 <button className={styles.todobutton} type='submit'>Add Activity</button>

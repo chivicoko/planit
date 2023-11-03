@@ -68,6 +68,10 @@ body {
     border-radius: 50px;
     transition: all .2s ease-in-out;
 }
+.todoItemContainer {
+    border-radius: 20px;
+    margin: 20px auto;
+}
 .todoitem {
     width: 100%;
     display: flex;
