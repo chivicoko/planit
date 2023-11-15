@@ -4,9 +4,10 @@ const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 
-    const [display1, setDisplay1] = useState('none');
+    // const [display1, setDisplay1] = useState('none');
     const [display2, setDisplay2] = useState('none');
-    const [pad, setPad] = useState('0');
+    // const [pad, setPad] = useState('0');
+    const [time, setTime] = useState("Time");
 
     // todo section
     const [todo, setTodo] = useState("");
@@ -33,17 +34,21 @@ const AppProvider = ({children}) => {
     }
 
     // display
-    const openTimeSection = (e) => {
-        display2 !== 'block' ? setDisplay2('block') : setDisplay2('none');
-        display1 !== '1px solid #666' ? setDisplay1('1px solid #666') : setDisplay1('none');
-        pad !== '20px' ? setPad('20px') : setPad('0');
-        // console.log(e);
+    const openTimeSection = (itemId) => {
+        // for (let index = itemId; ; ) {
+            // const element = array[index];
+            
+            display2 !== 'block' ? setDisplay2('block') : setDisplay2('none');
+            // display1 !== '1px solid #666' ? setDisplay1('1px solid #666') : setDisplay1('none');
+            // pad !== '20px' ? setPad('20px') : setPad('0');
+            // console.log(index);
+        // }
     }
 
     // date time section
     
 
-    return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, pad, openTimeSection, display1, }}>
+    return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection }}>
         {children}
     </AppContext.Provider>
 }

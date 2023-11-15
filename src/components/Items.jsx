@@ -4,7 +4,7 @@ import { useGlobContext } from '../context';
 import Time from './Time';
 
 const Items = () => {
-    const {handleDone, todoList, display1, pad, openTimeSection, display2} = useGlobContext();
+    const {handleDone, todoList, display1, pad, openTimeSection, display2, time} = useGlobContext();
 
   return (
     <div>  
@@ -15,17 +15,18 @@ const Items = () => {
                         <div className={styles.todoitem}>
                             <h3>{todoItem.name}</h3>
                             <div className="btns">
-                                <button className={styles.btnDone} onClick={() => openTimeSection()}>Set Time</button>
-                                <button className={styles.btnDone} onClick={() => handleDone(index)}>Done</button>
+                                <button className={styles.btnDone} onClick={() => openTimeSection(todoItem.id)}>{time}</button>
+                                <button className={styles.btnDone} onClick={() => handleDone(index)}>Remove</button>
                             </div>
                         </div>
-                        <div style={{display: display2}}>
-                            <Time/>
-                        </div>
+                        
                     </div>
                 )
             })
         }
+        <div style={{display: display2}}>
+            <Time/>
+        </div>
     </div>
   )
 }
