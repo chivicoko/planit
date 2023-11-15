@@ -96,6 +96,7 @@ body {
 }
 .btnDone:hover, .time .eventBtn:hover, .todobutton:hover {
     background: linear-gradient(90deg, #3A1C71 0%, #FDBB2D 100%);
+    cursor: pointer;
 }
 .timearea {
     padding: 20px;
