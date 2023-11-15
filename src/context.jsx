@@ -6,6 +6,8 @@ const AppProvider = ({children}) => {
 
     // const [display1, setDisplay1] = useState('none');
     const [display2, setDisplay2] = useState('none');
+    const [crossTodo, setCrossTodo] = useState('');
+    const [cancel, setCancel] = useState('Cancel');
     // const [pad, setPad] = useState('0');
     const [time, setTime] = useState("Time");
 
@@ -33,6 +35,14 @@ const AppProvider = ({children}) => {
         setTodoList(updatedItems);
     }
 
+    const handleCancel = (index) => {
+        // const updatedItems = [...todoList];
+        // updatedItems.indexOf(index);
+        // console.log(todoList.indexOf(index));
+        crossTodo !== '' ? setCrossTodo(`styles.cross`) : setCrossTodo('');
+        cancel !== 'Cancel' ? setCancel("Restore") : setCancel("Cancel");
+    }
+    
     // display
     const openTimeSection = (itemId) => {
         // for (let index = itemId; ; ) {
@@ -48,7 +58,7 @@ const AppProvider = ({children}) => {
     // date time section
     
 
-    return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection }}>
+    return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection, handleCancel, crossTodo, cancel }}>
         {children}
     </AppContext.Provider>
 }

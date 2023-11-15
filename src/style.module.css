@@ -161,3 +161,6 @@ body {
 p {
     margin-top: 10px;
 }
+.cross {
+    text-decoration: line-through;
+}

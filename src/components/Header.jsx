@@ -9,7 +9,7 @@ const Header = () => {
         <ToastContainer />
         <h3>planIt - Get Your Day Well Set</h3>
         <ul>
-            <li><Link to={'/'}>Schedule</Link></li>
+            <li><Link to={'/'}>Events</Link></li>
             <li><Link to={'/time'}>Set Date</Link></li>
         </ul>
     </div>
