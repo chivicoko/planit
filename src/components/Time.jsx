@@ -3,6 +3,8 @@ import '../DatetimePickerStyles.css';
 import {useSession, useSupabaseClient, useSessionContext} from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 import DateTimePicker from 'react-datetime-picker';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Time = () => {
@@ -59,8 +61,11 @@ const Time = () => {
         }).then((data) => {
             return data.json();
         }).then((data) => {
-            console.log(data);
-            alert('Event created. Check you google calendar!');
+            // console.log(data);
+            // alert('Event created. Check your google calendar!');
+            setEventName('');
+            setEventDescription('');
+            toast(`Event created for ${session.user.email}. Check your calendar.`)
         });
     }
 
@@ -71,8 +76,10 @@ const Time = () => {
                 ?
                 <div className={styles.time}>
                     <h2>Hey there {session.user.email}</h2>
+
                     <p className={styles.start}>Start of your event</p>
                     <DateTimePicker onChange={setStart} value={start} />
+
                     <p className={styles.end}>End of your event</p>
                     <DateTimePicker onChange={setEnd} value={end} label="Basic date time picker" />
 
