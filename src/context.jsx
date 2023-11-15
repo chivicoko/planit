@@ -9,7 +9,7 @@ const AppProvider = ({children}) => {
     const [crossTodo, setCrossTodo] = useState('');
     const [cancel, setCancel] = useState('Cancel');
     // const [pad, setPad] = useState('0');
-    const [time, setTime] = useState("Time");
+    const [time, setTime] = useState("Set Time");
 
     // todo section
     const [todo, setTodo] = useState("");

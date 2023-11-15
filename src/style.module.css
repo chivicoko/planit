@@ -164,3 +164,49 @@ p {
 .cross {
     text-decoration: line-through;
 }
+.dropdown {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    list-style-type: none;
+    margin: 5px 0;
+    padding: 0;
+    border: 2px solid #3A1C71;
+    border-radius: 10px;
+    width: 110px;
+    z-index: 1;
+}
+
+.menu > li {
+    margin: 0;
+    background-color: #fff;
+}
+
+.menu > li:hover {
+    background-color: #b9b2a5;
+}
+
+.menu #first_item {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.menu #last_item {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.menu > li > button {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background: none;
+    color: #000;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+}
