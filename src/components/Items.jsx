@@ -14,10 +14,12 @@ const Items = () => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
-        // if (index in todoList[index]) {
+        // e.preventDefault();
+
+        // if (index === todoList.indexOf(todoList[index])) {
             setOpen(!open);
-            // console.log(index);
         // }
+        // console.log(index === todoList.indexOf(todoList[index]));
     };
 
   return (

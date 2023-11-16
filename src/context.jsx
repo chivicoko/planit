@@ -30,10 +30,11 @@ const AppProvider = ({children}) => {
 
         if (todo.trim().length !== 0 && todo.trim().length !== 1 && todo.trim().length !== 2) {
             setTodoList([...todoList, {id:crypto.randomUUID(), name:todo}]);
+            toast(`Success! "${todo}" has been added to the list)`);
         } else {
             toast(`Invalid input. ("${todo}" is too short)`);
         }
-        
+
         setTodo('');
     }
 
@@ -44,11 +45,11 @@ const AppProvider = ({children}) => {
     }
 
     const handleCancel = index => {
-        // const updatedItems = [...todoList];
-        // updatedItems.indexOf(index);
-        // console.log(todoList.indexOf(index));
-        crossTodo !== '' ? setCrossTodo(`styles.cross`) : setCrossTodo('');
-        cancel !== 'Cancel' ? setCancel("Restore") : setCancel("Cancel");
+        if (index === todoList.indexOf(todoList[index])) {
+            crossTodo !== '' ? setCrossTodo(`styles.cross`) : setCrossTodo('');
+            cancel !== 'Cancel' ? setCancel("Restore") : setCancel("Cancel");
+        }
+        // console.log(index === todoList.indexOf(todoList[index]));
     }
     
     // display
