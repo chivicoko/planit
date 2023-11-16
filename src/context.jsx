@@ -1,4 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AppContext = React.createContext();
 
@@ -19,23 +21,29 @@ const AppProvider = ({children}) => {
         localStorage.setItem('lstodoList', JSON.stringify(todoList));
     }, [todoList]);
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         setTodo(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
-        setTodoList([...todoList, {id:crypto.randomUUID(), name:todo}]);
+
+        if (todo.trim().length !== 0 && todo.trim().length !== 1 && todo.trim().length !== 2) {
+            setTodoList([...todoList, {id:crypto.randomUUID(), name:todo}]);
+        } else {
+            toast(`Invalid input. ("${todo}" is too short)`);
+        }
+        
         setTodo('');
     }
 
-    const handleDone = (index) => {
+    const handleDone = index => {
         const updatedItems = [...todoList];
         updatedItems.splice(index, 1);
         setTodoList(updatedItems);
     }
 
-    const handleCancel = (index) => {
+    const handleCancel = index => {
         // const updatedItems = [...todoList];
         // updatedItems.indexOf(index);
         // console.log(todoList.indexOf(index));
@@ -44,7 +52,7 @@ const AppProvider = ({children}) => {
     }
     
     // display
-    const openTimeSection = (itemId) => {
+    const openTimeSection = itemId => {
         // for (let index = itemId; ; ) {
             // const element = array[index];
             

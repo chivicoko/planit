@@ -14,7 +14,10 @@ const Items = () => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
-        setOpen(!open);
+        // if (index in todoList[index]) {
+            setOpen(!open);
+            // console.log(index);
+        // }
     };
 
   return (
@@ -41,6 +44,11 @@ const Items = () => {
                                     </ul>
                                 ) : null}
                             </div>
+                            {/* <div className="btns">
+                                <button className={styles.btnDone} onClick={() => openTimeSection(todoItem.id)}><FontAwesomeIcon icon={faClock} /> {time}</button>
+                                <button className={`${styles.btnDone} ${''}`} onClick={() => handleCancel(index)}><FontAwesomeIcon icon={faCancel} /> {cancel}</button>
+                                <button className={styles.btnDone} onClick={() => handleDone(index)}><FontAwesomeIcon icon={faTrashCan} /> Remove</button>
+                            </div> */}
                         </div>
                     </div>
                 )
