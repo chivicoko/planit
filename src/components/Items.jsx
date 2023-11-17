@@ -14,12 +14,14 @@ const Items = () => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
-        // e.preventDefault();
 
-        // if (index === todoList.indexOf(todoList[index])) {
+        // if (index === todoList[index]) {
             setOpen(!open);
+            
+        //     console.log(index);
+        //     console.log(todoList.indexOf(todoList[index]));
+        //     console.log(todoList[index]);
         // }
-        // console.log(index === todoList.indexOf(todoList[index]));
     };
 
   return (
@@ -32,19 +34,23 @@ const Items = () => {
                             <h3 className={crossTodo}>{todoItem.name}</h3>
                             <div className={styles.dropdown}>
                                 <button className={styles.btnDone} onClick={handleOpen}><FontAwesomeIcon icon={faEllipsis} /></button>
-                                {open ? (
-                                    <ul className={styles.menu}>
-                                        <li id={styles.first_item} className={styles.menu_item}>
-                                            <button onClick={() => openTimeSection(todoItem.id)}><FontAwesomeIcon icon={faClock} /> {time}</button>
-                                        </li>
-                                        <li className={styles.menu_item}>
-                                            <button onClick={() => handleCancel(index)}><FontAwesomeIcon icon={faCancel} /> {cancel}</button>
-                                        </li>
-                                        <li id={styles.last_item} className={styles.menu_item}>
-                                            <button onClick={() => handleDone(index)}><FontAwesomeIcon icon={faTrashCan} /> Remove</button>
-                                        </li>
-                                    </ul>
-                                ) : null}
+
+                                {open ? 
+                                    index ? null
+                                    : (
+                                        <ul className={styles.menu}>
+                                            <li id={styles.first_item} className={styles.menu_item}>
+                                                <button onClick={() => openTimeSection(todoItem.id)}><FontAwesomeIcon icon={faClock} /> {time}</button>
+                                            </li>
+                                            <li className={styles.menu_item}>
+                                                <button onClick={() => handleCancel(index)}><FontAwesomeIcon icon={faCancel} /> {index} {cancel}</button>
+                                            </li>
+                                            <li id={styles.last_item} className={styles.menu_item}>
+                                                <button onClick={() => handleDone(index)}><FontAwesomeIcon icon={faTrashCan} /> Remove</button>
+                                            </li>
+                                        </ul>
+                                    ) 
+                                : null}
                             </div>
                             {/* <div className="btns">
                                 <button className={styles.btnDone} onClick={() => openTimeSection(todoItem.id)}><FontAwesomeIcon icon={faClock} /> {time}</button>
