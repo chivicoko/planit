@@ -210,3 +210,9 @@ p {
     font: inherit;
     cursor: pointer;
 }
+
+.todoitem .canceled {
+    text-decoration: line-through double;
+    text-decoration-thickness: 2px;
+    text-decoration-style: double;
+}

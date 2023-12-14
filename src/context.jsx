@@ -6,12 +6,11 @@ const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 
-    // const [display1, setDisplay1] = useState('none');
     const [display2, setDisplay2] = useState('none');
     const [crossTodo, setCrossTodo] = useState('');
     const [cancel, setCancel] = useState('Cancel');
-    // const [pad, setPad] = useState('0');
     const [time, setTime] = useState("Set Time");
+    const [openIndex, setOpenIndex] = useState(null);
 
     // todo section
     const [todo, setTodo] = useState("");
@@ -49,25 +48,28 @@ const AppProvider = ({children}) => {
             crossTodo !== '' ? setCrossTodo(`styles.cross`) : setCrossTodo('');
             cancel !== 'Cancel' ? setCancel("Restore") : setCancel("Cancel");
         }
-        // console.log(index === todoList.indexOf(todoList[index]));
     }
     
-    // display
+    const handleOpen = (index) => {
+        setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+    };
+
+    const handleCancelItem = (index) => {
+        const updatedTodoList = [...todoList];
+        updatedTodoList[index].canceled = !updatedTodoList[index].canceled;
+    };
+
+    const getCancelLabel = (index) => {
+        return todoList[index].canceled ? 'Restore' : 'Cancel';
+    };
+
+
     const openTimeSection = itemId => {
-        // for (let index = itemId; ; ) {
-            // const element = array[index];
-            
-            display2 !== 'block' ? setDisplay2('block') : setDisplay2('none');
-            // display1 !== '1px solid #666' ? setDisplay1('1px solid #666') : setDisplay1('none');
-            // pad !== '20px' ? setPad('20px') : setPad('0');
-            // console.log(index);
-        // }
+        display2 !== 'block' ? setDisplay2('block') : setDisplay2('none');
     }
-
-    // date time section
     
 
-    return <AppContext.Provider value={{handleChange, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection, handleCancel, crossTodo, cancel }}>
+    return <AppContext.Provider value={{handleChange, getCancelLabel, openIndex, handleCancelItem, handleOpen, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection, handleCancel, crossTodo, cancel }}>
         {children}
     </AppContext.Provider>
 }
