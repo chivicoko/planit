@@ -7,14 +7,16 @@ const AppContext = React.createContext();
 const AppProvider = ({children}) => {
 
     const [display2, setDisplay2] = useState('none');
-    const [crossTodo, setCrossTodo] = useState('');
-    const [cancel, setCancel] = useState('Cancel');
     const [time, setTime] = useState("Set Time");
     const [openIndex, setOpenIndex] = useState(null);
 
     // todo section
     const [todo, setTodo] = useState("");
-    const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('lstodoList')) || []);
+    // const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('lstodoList')) || []);
+    const [todoList, setTodoList] = useState(() => {
+        const storedTodoList = JSON.parse(localStorage.getItem('lstodoList')) || [];
+        return storedTodoList;
+    });
 
     useEffect(() => {
         localStorage.setItem('lstodoList', JSON.stringify(todoList));
@@ -42,13 +44,6 @@ const AppProvider = ({children}) => {
         updatedItems.splice(index, 1);
         setTodoList(updatedItems);
     }
-
-    const handleCancel = index => {
-        if (index === todoList.indexOf(todoList[index])) {
-            crossTodo !== '' ? setCrossTodo(`styles.cross`) : setCrossTodo('');
-            cancel !== 'Cancel' ? setCancel("Restore") : setCancel("Cancel");
-        }
-    }
     
     const handleOpen = (index) => {
         setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -57,6 +52,10 @@ const AppProvider = ({children}) => {
     const handleCancelItem = (index) => {
         const updatedTodoList = [...todoList];
         updatedTodoList[index].canceled = !updatedTodoList[index].canceled;
+
+        localStorage.setItem('todoList', JSON.stringify(updatedTodoList));
+
+        setTodoList(updatedTodoList);
     };
 
     const getCancelLabel = (index) => {
@@ -69,7 +68,7 @@ const AppProvider = ({children}) => {
     }
     
 
-    return <AppContext.Provider value={{handleChange, getCancelLabel, openIndex, handleCancelItem, handleOpen, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection, handleCancel, crossTodo, cancel }}>
+    return <AppContext.Provider value={{handleChange, getCancelLabel, openIndex, handleCancelItem, handleOpen, handleSubmit, handleDone, todo, todoList, setTodo, setTodoList, display2, time, setTime, openTimeSection }}>
         {children}
     </AppContext.Provider>
 }

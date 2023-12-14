@@ -7,9 +7,7 @@ import { faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import styles from '../style.module.css';
 import { useGlobContext } from '../context';
 import Time from './Time';
-import { useState } from 'react';
 
-// ... (your imports)
 
 const Items = () => {
     const { handleDone, openIndex, handleOpen, handleCancelItem, getCancelLabel, crossTodo, todoList, display1, pad, openTimeSection, display2, time } = useGlobContext();
@@ -42,7 +40,6 @@ const Items = () => {
                 </div>
             ))}
             <div style={{ display: display2 }}>
-                {/* Include your Time component here */}
                 <Time />
             </div>
         </div>
